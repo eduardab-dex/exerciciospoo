@@ -32,26 +32,38 @@ public class Aluno {
     */
 
     // ATRIBUTOS
-    String nome, matricula, cpf, turma;
+    private String nome, matricula, cpf, turma;
+    private Endereco endereco;
 
     // CONSTRUTORES
-    Aluno() { 
+    public Aluno() { 
         System.out.println("Insira os dados do aluno.");
         System.out.print("\nNome: ");
-        nome = scan.nextLine();
+        this.nome = scan.nextLine();
         System.out.print("\nMatrícula: ");
-        matricula = scan.nextLine();
+        this.matricula = scan.nextLine();
         System.out.print("\nCPF: ");
-        cpf = scan.nextLine();
+        this.cpf = scan.nextLine();
         System.out.print("\nTurma: ");
-        turma = scan.nextLine();
+        this.turma = scan.nextLine();
+        this.endereco = null;
     }
 
-    Aluno(String nome, String matricula, String cpf, String turma){
+    public Aluno(String nome, String matricula, String cpf, String turma){
         this.nome = nome;
         this.matricula = matricula;
         this.cpf = cpf;
         this.turma = turma;
+        this.endereco = null;
+    }
+
+    Aluno(String nome, String cpf, Endereco endereco){
+        this.nome = nome;
+        this.matricula = "não informada";
+        this.cpf = cpf;
+        this.turma = "não informada";
+        this.endereco = endereco;
+
     }
 
     // MÉTODOS
@@ -61,6 +73,10 @@ public class Aluno {
         System.out.print("\nMatrícula: "+ matricula);
         System.out.print("\nCPF: "+ cpf);
         System.out.print("\nTurma: "+ turma);
+        if (endereco != null){
+            System.out.println("Endereço: ");
+            endereco.exibir_dados();
+        }
     }
 
     void atualizar_dados(){
