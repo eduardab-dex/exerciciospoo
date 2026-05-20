@@ -17,6 +17,13 @@ public class Endereco {
         System.out.print("\nCidade: ");
         cidade = scan.nextLine();
     }
+
+    Endereco(String rua,String cep, String bairro, String cidade){
+        this.rua = rua;
+        this.cep = cep;
+        this.bairro = bairro;
+        this.cidade = cidade;
+    }
     
     // MÉTODOS
     void exibir_dados(){
